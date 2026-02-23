@@ -9,14 +9,14 @@ Personal Claude Code plugins by Jakob Busk Sørensen.
 Add the marketplace (one-time setup):
 
 ```
-/plugin marketplace add BuildItBusk/claude-plugins
+/plugin marketplace add https://github.com/BuildItBusk/claude-plugins
 ```
 
 Then install individual plugins:
 
 ```
-/plugin install code-review@BuildItBusk-claude-plugins
-/plugin install git@BuildItBusk-claude-plugins
+/plugin install code-review@BuildItBusk-plugins
+/plugin install git@BuildItBusk-plugins
 ```
 
 Alternatively, run `/plugin` to open the interactive UI and browse from there.
