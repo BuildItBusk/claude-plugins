@@ -2,7 +2,7 @@
 name: review
 description: Compare a branch to the default branch and code review the changes
 argument-hint: optional branch name
-allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status), Bash(git fetch:*), Bash(git log:*), Bash(git checkout:*), Bash(git stash:*), Bash(git symbolic-ref:*)
+allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status), Bash(git fetch:*), Bash(git log:*), Bash(git rev-list:*), Bash(git checkout:*), Bash(git stash:*), Bash(git symbolic-ref:*)
 ---
 
 # Assumptions
@@ -20,8 +20,9 @@ allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status), Bash(git fe
 3. **Gather context:**
    - Run `git status` to see all changes (staged, unstaged, untracked)
    - Run `git log {default-branch}..HEAD --oneline` to see committed changes (if any)
-   - Run `git diff {default-branch} --stat` to see files changed summary (includes uncommitted)
-   - Run `git diff {default-branch}` to get full diff for review (includes uncommitted)
+   - Run `git diff {default-branch}...HEAD --stat` to see files changed summary (includes uncommitted)
+   - Run `git diff {default-branch}...HEAD` to get full diff for review (includes uncommitted)
+   - Run `git rev-list HEAD..origin/{default-branch} --count` to check how many commits behind the default branch this branch is
    - For untracked files shown in status, read them with Read tool to review their contents
 4. Sonnet reviews diff for HIGH SIGNAL issues only:
    - **Bugs:** Code that will fail to compile, clear logic errors, definite wrong results
@@ -55,6 +56,7 @@ allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status), Bash(git fe
 
    ## Summary
    X files reviewed, Y issues found
+   If the branch is 10 or more commits behind the default branch, append: "⚠ Branch is N commits behind `{default-branch}` — consider rebasing before merging to catch potential conflicts."
 
    Include all high-confidence issues from Sonnet and confirmed issues from Opus verification
 7. **Optional validation:** If significant logic changes exist, suggest running the project's test suite to verify functionality
