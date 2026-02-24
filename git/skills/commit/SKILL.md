@@ -2,7 +2,7 @@
 name: commit
 description: Create a git commit following good commit conventions
 argument-hint: optional context for commit message
-allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(dotnet test:*), Bash(npm test), Bash(pytest:*), Bash(make test)
+allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status:*), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(git -C:*), Bash(dotnet test:*), Bash(npm test:*), Bash(pytest:*), Bash(make test:*)
 ---
 
 # Prerequisites
@@ -26,8 +26,13 @@ Detect the default branch by running `git symbolic-ref refs/remotes/origin/HEAD`
         - Why the change was made
         - Technical decisions or trade-offs
         - Impact on other parts of the system
-    - For multi-line commits, use multiple -m flags: `git commit -m "Summary" -m "" -m "- Detail 1" -m "- Detail 2"`
-    - The second -m with empty string creates the required blank line between summary and body.
+    - For multi-line commits, embed newlines in a single -m value:
+      ```
+      git commit -m "Summary
+
+      - Detail 1
+      - Detail 2"
+      ```
     - Only use multi-line commits if the extra lines significantly increase clarity.
         - Don't need explanation: "Fix typo", "Update dependency version", "Add missing semicolon"
         - Do need explanation: Architectural decisions, non-obvious bug fixes, trade-offs, breaking changes
