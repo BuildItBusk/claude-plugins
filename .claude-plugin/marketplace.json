@@ -4,6 +4,9 @@
     "name": "Jakob Busk Sørensen",
     "email": "busk.soerensen@gmail.com"
   },
+  "metadata": {
+    "description": "A personal toolbox of general-purpose Claude Code plugins, designed to be useful across any project rather than tied to a specific codebase."
+  },
   "plugins": [
     {
       "name": "code-review",
