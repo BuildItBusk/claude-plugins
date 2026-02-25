@@ -25,11 +25,11 @@ Alternatively, run `/plugin` to open the interactive UI and browse from there.
 
 ### `code-review`
 
-Skills for reviewing code changes.
+Skills for reviewing diffs.
 
 | Skill | Usage | Description |
 |-------|-------|-------------|
-| `review` | `/review [branch]` | Diffs a branch against the default branch and reports bugs, security issues, and CLAUDE.md violations. Escalates low-confidence findings to Opus for verification. Defaults to the current branch if no argument is given. |
+| `diff-review` | `/diff-review [branch]` | Diffs a branch against the default branch and reports bugs, security issues, and CLAUDE.md violations. Escalates low-confidence findings to Opus for verification. Defaults to the current branch if no argument is given. |
 
 ### `git`
 

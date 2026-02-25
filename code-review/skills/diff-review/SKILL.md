@@ -1,6 +1,6 @@
 ---
-name: review
-description: Compare a branch to the default branch and code review the changes
+name: diff-review
+description: Diff a branch against the default branch and review the changes
 argument-hint: optional branch name
 allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*), Bash(git fetch:*), Bash(git log:*), Bash(git rev-list:*), Bash(git checkout:*), Bash(git stash:*), Bash(git symbolic-ref:*), Bash(git -C:*)
 ---

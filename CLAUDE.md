@@ -14,8 +14,8 @@ claude-plugins/
 │   ├── .claude-plugin/
 │   │   └── plugin.json           # Plugin manifest (name, description, version)
 │   └── skills/
-│       └── review/
-│           └── SKILL.md          # /review skill definition
+│       └── diff-review/
+│           └── SKILL.md          # /diff-review skill definition
 ├── git/                          # "git" plugin
 │   ├── .claude-plugin/
 │   │   └── plugin.json           # Plugin manifest (name, description, version)

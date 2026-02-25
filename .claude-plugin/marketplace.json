@@ -11,7 +11,7 @@
     {
       "name": "code-review",
       "source": "./code-review",
-      "description": "Code review assistant"
+      "description": "Diff review assistant"
     },
     {
       "name": "git",
