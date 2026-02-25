@@ -2,7 +2,7 @@
 name: commit
 description: Create a git commit following good commit conventions
 argument-hint: optional context for commit message
-allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status:*), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(git -C:*), Bash(dotnet test:*), Bash(npm test:*), Bash(pytest:*), Bash(make test:*)
+allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status:*), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(git commit:*), Bash(git -C:*), Bash(dotnet test:*), Bash(npm test:*), Bash(pytest:*), Bash(make test:*)
 ---
 
 # Prerequisites
@@ -22,11 +22,10 @@ Detect the default branch by running `git symbolic-ref refs/remotes/origin/HEAD`
     - Start with a capital letter
     - Use imperative mood: "Fix bug" (not "Fixed bug")
     - Keep summary line under 50 characters
-    - Add explanation on separate lines when the change needs context:
+    - When the change needs context, add a bulleted list after a blank line:
         - Why the change was made
         - Technical decisions or trade-offs
         - Impact on other parts of the system
-    - For multi-line commits, embed newlines in a single -m value:
       ```
       git commit -m "Summary
 
