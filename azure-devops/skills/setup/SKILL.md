@@ -2,7 +2,7 @@
 name: setup-azure-devops
 description: Create or update the .azure-devops.json config file for this repository
 disable-model-invocation: true
-allowed-tools: Bash(python ${CLAUDE_SKILL_DIR}/detect_ado_remote.py*), Write, Read
+allowed-tools: Bash(python *detect_ado_remote.py*), Write, Read
 ---
 
 # Instructions

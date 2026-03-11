@@ -3,7 +3,7 @@ name: create-pr
 description: Create an Azure DevOps pull request for the current branch
 argument-hint: "[title]"
 disable-model-invocation: true
-allowed-tools: Bash(python ${CLAUDE_SKILL_DIR}/pr_context.py*), Bash(python ${CLAUDE_SKILL_DIR}/pr_create.py*)
+allowed-tools: Bash(python *pr_context.py*), Bash(python *pr_create.py*)
 ---
 
 # Instructions
