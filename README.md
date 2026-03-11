@@ -15,6 +15,7 @@ Add the marketplace (one-time setup):
 Then install individual plugins:
 
 ```
+/plugin install azure-devops@BuildItBusk-plugins
 /plugin install code-review@BuildItBusk-plugins
 /plugin install git@BuildItBusk-plugins
 ```
@@ -22,6 +23,25 @@ Then install individual plugins:
 Alternatively, run `/plugin` to open the interactive UI and browse from there.
 
 ## Plugins
+
+### `azure-devops`
+
+Skills for Azure DevOps workflows. Requires a `.azure-devops.json` file in the repository root:
+
+```json
+{
+  "org": "myorg",
+  "project": "myproject",
+  "repository": "myrepo",
+  "default_branch": "main"
+}
+```
+
+`default_branch` is optional and defaults to `main`. The other three fields are required. This file can safely be committed — it contains no secrets.
+
+| Skill | Usage | Description |
+|-------|-------|-------------|
+| `create-pr` | `/create-pr [title]` | Creates a pull request for the current branch. Derives title and description from commits and diff stat, pushes the branch if needed, and opens the PR in your browser. |
 
 ### `code-review`
 

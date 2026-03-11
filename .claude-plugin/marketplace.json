@@ -17,6 +17,11 @@
       "name": "git",
       "source": "./git",
       "description": "Git assistant"
+    },
+    {
+      "name": "azure-devops",
+      "source": "./azure-devops",
+      "description": "Azure DevOps workflow shortcuts"
     }
   ]
 }
