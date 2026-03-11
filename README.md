@@ -37,10 +37,11 @@ Skills for Azure DevOps workflows. Requires a `.azure-devops.json` file in the r
 }
 ```
 
-`default_branch` is optional and defaults to `main`. The other three fields are required. This file can safely be committed — it contains no secrets.
+`default_branch` is optional and defaults to `main`. The other three fields are required. This file can safely be committed — it contains no secrets. Run `/setup-azure-devops` to create it automatically — it detects values from your git remote.
 
 | Skill | Usage | Description |
 |-------|-------|-------------|
+| `setup-azure-devops` | `/setup-azure-devops` | Creates `.azure-devops.json` by detecting org/project/repo from the git remote. Asks for confirmation and fills in anything it can't detect. |
 | `create-pr` | `/create-pr [title]` | Creates a pull request for the current branch. Derives title and description from commits and diff stat, pushes the branch if needed, and opens the PR in your browser. |
 
 ### `code-review`

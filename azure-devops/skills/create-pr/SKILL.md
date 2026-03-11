@@ -3,13 +3,13 @@ name: create-pr
 description: Create an Azure DevOps pull request for the current branch
 argument-hint: "[title]"
 disable-model-invocation: true
-allowed-tools: Bash(python ${CLAUDE_SKILL_DIR}/../../scripts/pr_context.py*), Bash(python ${CLAUDE_SKILL_DIR}/../../scripts/pr_create.py*)
+allowed-tools: Bash(python ${CLAUDE_SKILL_DIR}/pr_context.py*), Bash(python ${CLAUDE_SKILL_DIR}/pr_create.py*)
 ---
 
 # Context
 
 ```json
-!`python ${CLAUDE_SKILL_DIR}/../../scripts/pr_context.py`
+!`python ${CLAUDE_SKILL_DIR}/pr_context.py`
 ```
 
 # Instructions
@@ -22,7 +22,7 @@ allowed-tools: Bash(python ${CLAUDE_SKILL_DIR}/../../scripts/pr_context.py*), Ba
 2. **Show the user** the title, description, and target branch — ask to confirm or adjust
 3. **Create the PR** (handles push + `az repos pr create` using `.azure-devops.json`):
    ```
-   python ${CLAUDE_SKILL_DIR}/../../scripts/pr_create.py "<title>" "<description>" [target-branch]
+   python ${CLAUDE_SKILL_DIR}/pr_create.py "<title>" "<description>" [target-branch]
    ```
    Target branch is optional — defaults to the value in `.azure-devops.json`.
 4. **Output** the PR URL
