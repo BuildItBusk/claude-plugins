@@ -7,6 +7,7 @@ Pushes the current branch if needed, then creates the PR.
 """
 
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -55,9 +56,14 @@ def main() -> None:
 
     org_url = f"https://dev.azure.com/{org}" if not org.startswith("https://") else org
 
+    az = shutil.which("az")
+    if not az:
+        print("ERROR: 'az' CLI not found on PATH.", file=sys.stderr)
+        sys.exit(1)
+
     result = run(
         [
-            "az", "repos", "pr", "create",
+            az, "repos", "pr", "create",
             "--org", org_url,
             "--project", project,
             "--repository", repo,
