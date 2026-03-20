@@ -22,6 +22,14 @@ claude-plugins/
 │   └── skills/
 │       └── commit/
 │           └── SKILL.md          # /commit skill definition
+├── azure-devops/                 # "azure-devops" plugin
+│   ├── .claude-plugin/
+│   │   └── plugin.json           # Plugin manifest
+│   └── skills/
+│       ├── create-pr/
+│       │   └── SKILL.md          # /create-pr skill definition
+│       └── setup/
+│           └── SKILL.md          # /setup-azure-devops skill definition
 ├── CLAUDE.md
 └── README.md
 ```

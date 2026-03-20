@@ -5,10 +5,6 @@ argument-hint: optional context for commit message
 allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status:*), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(git commit:*), Bash(git -C:*), Bash(dotnet test:*), Bash(npm test:*), Bash(pytest:*), Bash(make test:*)
 ---
 
-# Prerequisites
-
-Detect the default branch by running `git symbolic-ref refs/remotes/origin/HEAD`. If the current branch is the default branch (typically `main` or `master`), warn the user and ask them to confirm before proceeding.
-
 # Instructions
 1. **Analysis:** Check `git status` and `git diff`.
 2. **Tests:** If the diff contains changes to source code files (not just scripts, config, docs, or Markdown), suggest running tests before committing. Use judgment — if the change is trivial (a typo fix, a comment, a version bump) or only touches non-code files, skip this. If tests seem relevant, detect the test runner from the repo (e.g. `dotnet`, `npm test`, `pytest`, `make test`) and ask the user if they'd like to run them.

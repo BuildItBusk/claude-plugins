@@ -12,8 +12,8 @@ import sys
 from pathlib import Path
 
 
-def run(cmd: str, check: bool = True) -> subprocess.CompletedProcess:
-    return subprocess.run(cmd, shell=True, capture_output=True, text=True, check=check)
+def run(cmd: list[str], check: bool = True) -> subprocess.CompletedProcess:
+    return subprocess.run(cmd, capture_output=True, text=True, check=check)
 
 
 def find_config() -> dict:
@@ -44,27 +44,29 @@ def main() -> None:
         print("ERROR: .azure-devops.json must contain org, project, and repository.", file=sys.stderr)
         sys.exit(1)
 
-    source = run("git branch --show-current").stdout.strip()
+    source = run(["git", "branch", "--show-current"]).stdout.strip()
     target = sys.argv[3] if len(sys.argv) > 3 else config.get("default_branch", "main")
 
     # Push branch if no upstream
-    tracking = run(f"git rev-parse --abbrev-ref {source}@{{upstream}}", check=False)
+    tracking = run(["git", "rev-parse", "--abbrev-ref", f"{source}@{{upstream}}"], check=False)
     if tracking.returncode != 0:
         print(f"Pushing {source} to origin...")
-        run(f"git push -u origin {source}")
+        run(["git", "push", "-u", "origin", source])
 
     org_url = f"https://dev.azure.com/{org}" if not org.startswith("https://") else org
 
     result = run(
-        f'az repos pr create'
-        f' --org "{org_url}"'
-        f' --project "{project}"'
-        f' --repository "{repo}"'
-        f' --source-branch "{source}"'
-        f' --target-branch "{target}"'
-        f' --title "{title}"'
-        f' --description "{description}"'
-        f' --open',
+        [
+            "az", "repos", "pr", "create",
+            "--org", org_url,
+            "--project", project,
+            "--repository", repo,
+            "--source-branch", source,
+            "--target-branch", target,
+            "--title", title,
+            "--description", description,
+            "--open",
+        ],
         check=False,
     )
 
