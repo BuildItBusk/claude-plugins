@@ -7,7 +7,7 @@ allowed-tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*), Bash(git 
 
 # Assumptions
 - If no branch name is provided through the argument, assume that it is the current branch which needs reviewed
-- Detect the default branch by running `git symbolic-ref refs/remotes/origin/HEAD`
+- If default branch is not specified, detect it by running `git symbolic-ref refs/remotes/origin/HEAD`
 - If no branch argument is provided and the current branch is the default branch, warn the user and stop — there is nothing to diff
 
 # Preparation
