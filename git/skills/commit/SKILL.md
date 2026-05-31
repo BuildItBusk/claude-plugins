@@ -1,35 +1,23 @@
 ---
 name: commit
-description: Create a git commit following good commit conventions
+description: Commit code changes to local git repository, following the user's preferences
 argument-hint: optional context for commit message
-allowed-tools: Bash(git diff:*), Bash(git add:*), Bash(git status:*), Bash(git log:*), Bash(git branch:*), Bash(git symbolic-ref:*), Bash(git commit:*), Bash(git -C:*), Bash(dotnet test:*), Bash(npm test:*), Bash(pytest:*), Bash(make test:*)
+allowed-tools: Bash(git *)
 ---
 
-# Instructions
-1. **Analysis:** Check `git status` and `git diff`.
-2. **Tests:** If the diff contains changes to source code files (not just scripts, config, docs, or Markdown), suggest running tests before committing. Use judgment — if the change is trivial (a typo fix, a comment, a version bump) or only touches non-code files, skip this. If tests seem relevant, detect the test runner from the repo (e.g. `dotnet`, `npm test`, `pytest`, `make test`) and ask the user if they'd like to run them.
-3. **Stage:**
-   - Run `git add -u` to stage modifications and deletions to tracked files.
-   - If `git status` shows untracked files, recommend which ones to stage based on
-     context (e.g. source files related to the diff, new test files). Exclude files
-     that look like build artifacts, secrets, or editor noise. Present the
-     recommendation and ask the user to confirm or adjust before staging them.
-4. **Draft Message:** Create a commit message following these conventions:
-    - Start with a capital letter
-    - Use imperative mood: "Fix bug" (not "Fixed bug")
-    - Keep summary line under 50 characters
-    - When the change needs context, add a bulleted list after a blank line:
-        - Why the change was made
-        - Technical decisions or trade-offs
-        - Impact on other parts of the system
-      ```
-      git commit -m "Summary
+# Git Commit Skill
 
-      - Detail 1
-      - Detail 2"
-      ```
-    - Only use multi-line commits if the extra lines significantly increase clarity.
-        - Don't need explanation: "Fix typo", "Update dependency version", "Add missing semicolon"
-        - Do need explanation: Architectural decisions, non-obvious bug fixes, trade-offs, breaking changes
-    - Only add information which provides value. E.g. "Co-authored by Claude" does not provide any value
-5. **Commit:** Run `git commit -m "[message]"`.
+Stage and commit changes to local git repository, following the preferences described below.
+
+## Granularity
+
+- Split changes into multiple commits when they are logically separate.
+- Each commit should be a coherent, self-contained unit of work — don't commit a change mid-refactor that leaves the tree broken.
+- Ignore changes not related to the current work, but notify the user when you do.
+
+## Commit Message Conventions
+
+- Always have a clear, concise summary line starting with a capital letter and using imperative mood.
+- If the change needs context, add a bulleted list after a blank line, explaining concisely what changed
+- Include a _why_ for the change, if it's not obvious, but keep it brief
+- Omit any information which is not useful to a future reader (e.g. "Co-authored by Claude" typically does not provide any value)
