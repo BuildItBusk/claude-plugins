@@ -1,6 +1,6 @@
-# claude-plugins
+# BuildItBusk's Claude Code Plugins
 
-Personal Claude Code plugins by Jakob Busk Sørensen.
+My personal Claude Code tools which are not project specific. They are optimized to my personal use, but I made the repository public, in case they can help or inspire others.
 
 ## Installation
 
@@ -8,13 +8,13 @@ Personal Claude Code plugins by Jakob Busk Sørensen.
 
 Add the marketplace (one-time setup):
 
-```
+```sh
 /plugin marketplace add https://github.com/BuildItBusk/claude-plugins
 ```
 
 Then install individual plugins:
 
-```
+```sh
 /plugin install azure-devops@BuildItBusk-plugins
 /plugin install code-review@BuildItBusk-plugins
 /plugin install git@BuildItBusk-plugins
@@ -65,11 +65,11 @@ Skills for common git workflows.
 
 Each plugin lives in its own directory and follows the standard Claude Code plugin layout:
 
-```
+```sh
 <plugin-name>/
   .claude-plugin/
     plugin.json       # name, description, version
   skills/
     <skill-name>/
-      SKILL.md        # skill instructions and frontmatter
+      SKILL.md        # skill instructions and front-matter
 ```

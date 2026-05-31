@@ -2,11 +2,15 @@
 
 ## Overview
 
-This repository is a Claude Code **plugin marketplace** — a catalog of plugins that can be installed into Claude Code. It can be used locally or added directly from GitHub.
+This repository is my personal Claude Code **plugin marketplace** - it contains the Claude Code tools I use, which are not project specific.
+
+## Source control
+
+The repository is tracked in a public Github repository at <https://github.com/BuildItBusk/claude-plugins>.
 
 ## Structure
 
-```
+```sh
 claude-plugins/
 ├── .claude-plugin/
 │   └── marketplace.json          # Marketplace catalog (name, owner, plugin list)
@@ -47,12 +51,22 @@ Each plugin lives in its own top-level directory and follows the same layout: a 
 ## Validating and testing
 
 Validate the marketplace structure:
-```shell
+
+```sh
 /plugin validate .
 ```
 
 Test locally end-to-end:
-```shell
+
+```sh
 /plugin marketplace add ./
 /plugin install <plugin-name>@plugins
 ```
+
+## References
+
+Read the references when working on **non-trivial** things in any of the referenced topics.
+
+- [Claude Memories](https://code.claude.com/docs/en/memory.md) - How to use `CLAUDE.md` files and auto memory
+- [Claude Code Skills](https://code.claude.com/docs/en/skills.md) - Instructions and best practices on writing skills for Claude Code
+- [Claude Code Plugins](https://code.claude.com/docs/en/plugins) - Creating and sharing plugins for Claude Code
