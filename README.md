@@ -17,7 +17,6 @@ Then install individual plugins:
 ```sh
 /plugin install azure-devops@BuildItBusk-plugins
 /plugin install code-review@BuildItBusk-plugins
-/plugin install git@BuildItBusk-plugins
 ```
 
 Alternatively, run `/plugin` to open the interactive UI and browse from there.
@@ -51,15 +50,6 @@ Skills for reviewing diffs.
 | Skill | Usage | Description |
 |-------|-------|-------------|
 | `diff-review` | `/diff-review [branch]` | Diffs a branch against the default branch and reports bugs, security issues, and CLAUDE.md violations. Escalates low-confidence findings to Opus for verification. Defaults to the current branch if no argument is given. |
-
-### `git`
-
-Skills for common git workflows.
-
-| Skill | Usage | Description |
-|-------|-------|-------------|
-| `commit` | `/commit [context]` | Stages changes, drafts a commit message, and commits. Suggests running tests when source files are changed. Handles untracked files with a recommendation rather than blindly staging everything. |
-| `delete-stale-branches` | `/delete-stale-branches` | ⚠️ Cleans up local branches that are no longer needed. Auto-deletes merged branches, asks before deleting stale or gone branches with unmerged work, and reports branches with active work. |
 
 ## Structure
 

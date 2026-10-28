@@ -20,12 +20,6 @@ claude-plugins/
 │   └── skills/
 │       └── diff-review/
 │           └── SKILL.md          # /diff-review skill definition
-├── git/                          # "git" plugin
-│   ├── .claude-plugin/
-│   │   └── plugin.json           # Plugin manifest (name, description, version)
-│   └── skills/
-│       └── commit/
-│           └── SKILL.md          # /commit skill definition
 ├── azure-devops/                 # "azure-devops" plugin
 │   ├── .claude-plugin/
 │   │   └── plugin.json           # Plugin manifest
